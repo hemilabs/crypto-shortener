@@ -22,6 +22,7 @@ describe("shorten()", function () {
 
   it("should should throw an error if the types are unsupported", function () {
     should.throw(() => shorten(), TypeError);
+    should.throw(() => shorten(-2), TypeError);
     should.throw(() => shorten({}), TypeError);
     should.throw(() => shorten([1]), TypeError);
   });
