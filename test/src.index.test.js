@@ -15,15 +15,24 @@ describe("shorten()", function () {
   it("should allow changing the prefixes and digits", function () {
     const address = "bc1qcup4k9q7j0gsjfcv2nqfeu88wjcs9wv0jfuu56";
     const shortened = "bc1qcup4...fuu56";
-    // @ts-ignore ts(2349) JSDoc syntax supported by TS is not expressive enough
-    const customShorten = shorten(["0x", "bc1", "tb1"])(5);
-    customShorten(address).should.equal(shortened);
+    const options = { length: 5, prefixes: ["bc1"] };
+    shorten(address, options).should.equal(shortened);
   });
 
-  it("should should throw an error if the types are unsupported", function () {
+  it("should allow one-level customization", function () {
+    const address = "0x4675C7e5BaAFBFFbca748158bEcBA61ef3b0a263";
+    const shortened = "0x4675...a263";
+    const shortenEvmAddress = shorten({ prefixes: ["0x"] });
+    // @ts-ignore ts(2349) Cannot type proper overloads with JSDoc.
+    shortenEvmAddress(address).should.equal(shortened);
+  });
+
+  it("should should throw TypeError errors on wrong input", function () {
+    // @ts-ignore ts(2554) This is expected.
     should.throw(() => shorten(), TypeError);
+    // @ts-ignore ts(2345) This is expected.
+    should.throw(() => shorten(null), TypeError);
+    // @ts-ignore ts(2345) This is expected.
     should.throw(() => shorten(-2), TypeError);
-    should.throw(() => shorten({}), TypeError);
-    should.throw(() => shorten([1]), TypeError);
   });
 });

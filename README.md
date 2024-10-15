@@ -1,6 +1,6 @@
 # crypto-shortener
 
-Shorten crypto hashes, addresses with ellipsis and too much magic!
+Shorten crypto hashes, addresses with ellipsis.
 
 ## Installation
 
@@ -18,26 +18,29 @@ console.log(
 );
 // "6e3e...b3a0"
 
-const customShorten = shorten(["0x", "bc1", "tb1"])(5);
-console.log(customShorten("bc1qcup4k9q7j0gsjfcv2nqfeu88wjcs9wv0jfuu56"));
+const shortenAddress = shorten({ length: 5, prefixes: ["bc1"] });
+console.log(shortenAddress("bc1qcup4k9q7j0gsjfcv2nqfeu88wjcs9wv0jfuu56"));
 // "bc1qcup4...fuu56"
 ```
 
 ## API
 
-### shorten(arg: string): string
+### shorten(arg: string, options?: { length?: number, prefixes?: string[] }): string
 
 Shortens the given string `arg` using ellipsis to remove the characters in the middle.
 Returns the shortened string.
 
-Defaults to the first 4 characters of the string, ellipsis and the last 4 characters.
+#### options.length
 
-### shorten(arg: number): function
+Keep the first and last `length` characters of the original string.
+Defaults to 4.
 
-When given a number, it returns a new `shorten` function that will shorten that amount of characters instead of the default.
+#### options.prefixes
 
-### shorten(arg: string[]): function
+Don't consider those strings when computing the length of the leading part.
+This allows ignoring prefixes like `bc1` or `0x`, commonly used in crypto strings.
+Defaults to none.
 
-When given a strings array, it returns a new `shorten` function that will use those as known prefixes.
-The shorten logic will not consider those strings when computing the length of the leading part of the result string.
-That allows ignoring prefixes like `bc1` or `0x`, commonly used in crypto strings.
+### shorten(arg: { length?: number, prefixes?: string[] }): (str: string) => string
+
+When given an options object instead of a `string`, it will return a new function that will use those to shorten any given strings.
