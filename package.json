@@ -126,7 +126,7 @@
     ]
   },
   "lint-staged": {
-    "*,!*.{js,md},!package.json": [
+    "!(*.{js,md}|package.json)": [
       "prettier --ignore-unknown --write"
     ],
     "*.{js,md}": [
