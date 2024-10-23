@@ -22,8 +22,8 @@
   "repository": "hemilabs/crypto-shortener",
   "scripts": {
     "coverage": "c8 npm test",
+    "deps:check": "knip",
     "format:check": "prettier --check .",
-    "knip": "knip",
     "lint": "eslint --cache .",
     "prepare": "husky",
     "test": "mocha"
