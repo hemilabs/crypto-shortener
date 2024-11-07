@@ -102,6 +102,5 @@
     },
     "root": true
   },
-  "module": "./_esm/index.js",
-  "prettier": {}
+  "module": "./_esm/index.js"
 }
