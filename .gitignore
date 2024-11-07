@@ -1,5 +1,8 @@
 .eslintcache
 .nyc_output
 .vscode
+_esm
+_types
 coverage
 node_modules
+tsconfig.tsbuildinfo
