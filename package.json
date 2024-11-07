@@ -60,47 +60,5 @@
       "types": "./_types/index.d.ts"
     }
   },
-  "eslintConfig": {
-    "extends": [
-      "bloq",
-      "prettier"
-    ],
-    "overrides": [
-      {
-        "extends": [
-          "bloq/typescript"
-        ],
-        "files": [
-          "src/**/*.ts"
-        ]
-      },
-      {
-        "extends": [
-          "plugin:markdownlint/recommended"
-        ],
-        "files": [
-          "*.md"
-        ],
-        "parser": "eslint-plugin-markdownlint/parser",
-        "rules": {
-          "markdownlint/md013": "off",
-          "markdownlint/md034": "warn"
-        }
-      },
-      {
-        "extends": [
-          "bloq/vitest",
-          "prettier"
-        ],
-        "files": [
-          "*.test.js"
-        ]
-      }
-    ],
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "root": true
-  },
   "module": "./_esm/index.js"
 }

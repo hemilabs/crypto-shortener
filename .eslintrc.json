@@ -1,0 +1,21 @@
+{
+  "extends": ["bloq", "prettier"],
+  "overrides": [
+    {
+      "extends": ["bloq/typescript", "prettier"],
+      "files": ["src/**/*.ts"]
+    },
+    {
+      "extends": ["bloq/markdown"],
+      "files": ["*.md"]
+    },
+    {
+      "extends": ["bloq/vitest", "prettier"],
+      "files": ["*.test.js"]
+    }
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "root": true
+}
