@@ -39,12 +39,11 @@
     "@types/node": "^22.7.3",
     "better-sort-package-json": "^1.0.0",
     "c8": "^10.1.2",
-    "chai": "^5.1.1",
     "eslint": "^8.57.1",
     "eslint-config-bloq": "^4.4.0",
     "eslint-plugin-markdownlint": "^0.6.0",
     "husky": "^9.1.6",
-    "knip": "^5.32.0",
+    "knip": "^5.36.3",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "typescript": "5.6.3",
@@ -133,12 +132,6 @@
       "sourceType": "module"
     },
     "root": true
-  },
-  "knip": {
-    "ignoreDependencies": [
-      "eslint-config-prettier",
-      "lint-staged"
-    ]
   },
   "module": "./_esm/index.js",
   "prettier": {}
