@@ -16,6 +16,8 @@
   "license": "MIT",
   "author": "Gabriel Montes <gabriel@bloq.com>",
   "files": [
+    "_esm",
+    "_types",
     "src"
   ],
   "main": "./_esm/index.js",
@@ -60,5 +62,7 @@
       "types": "./_types/index.d.ts"
     }
   },
-  "module": "./_esm/index.js"
+  "module": "./_esm/index.js",
+  "types": "./_types/index.d.ts",
+  "typings": "./_types/index.d.ts"
 }
