@@ -1,6 +1,6 @@
 {
   "name": "crypto-shortener",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Shorten crypto hashes, addresses with ellipsis",
   "keywords": [
     "address",
@@ -16,127 +16,52 @@
   "license": "MIT",
   "author": "Gabriel Montes <gabriel@bloq.com>",
   "files": [
+    "_esm",
+    "_types",
     "src"
   ],
-  "main": "src/index.js",
+  "main": "./_esm/index.js",
   "repository": "hemilabs/crypto-shortener",
   "scripts": {
-    "coverage": "c8 npm test",
+    "build": "npm run clean && npm run build:esm && npm run build:types",
+    "build:esm": "tsc --noEmit false --outDir ./_esm --sourceMap",
+    "build:types": "tsc --noEmit false --module esnext --declarationDir ./_types --emitDeclarationOnly --declaration --declarationMap",
+    "clean": "rm -rf ./_esm ./_types",
+    "coverage": "vitest run --coverage",
     "deps:check": "knip",
     "format:check": "prettier --check .",
     "lint": "eslint --cache .",
     "prepare": "husky",
-    "test": "mocha"
+    "prepublishOnly": "npm run build",
+    "test": "vitest run",
+    "tsc": "tsc --noEmit"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
-    "@types/chai": "^5.0.0",
-    "@types/mocha": "^10.0.8",
     "@types/node": "^22.7.3",
-    "better-sort-package-json": "^1.0.0",
-    "c8": "^10.1.2",
-    "chai": "^5.1.1",
+    "@vitest/coverage-v8": "^2.1.4",
+    "better-sort-package-json": "^1.1.0",
+    "commitlint-config-bloq": "^1.1.0",
     "eslint": "^8.57.1",
-    "eslint-config-bloq": "^4.1.0",
-    "eslint-plugin-markdownlint": "^0.6.0",
+    "eslint-config-bloq": "^4.4.1",
     "husky": "^9.1.6",
-    "knip": "^5.32.0",
+    "knip": "^5.36.3",
     "lint-staged": "^15.2.10",
-    "mocha": "^10.7.3",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "5.6.3",
+    "vitest": "2.1.4"
   },
   "engines": {
     "node": ">=16.11"
   },
   "type": "module",
-  "commitlint": {
-    "rules": {
-      "body-case": [
-        2,
-        "always",
-        [
-          "sentence-case"
-        ]
-      ],
-      "body-leading-blank": [
-        1,
-        "always"
-      ],
-      "header-case": [
-        2,
-        "always",
-        [
-          "sentence-case"
-        ]
-      ],
-      "header-full-stop": [
-        2,
-        "never",
-        "."
-      ],
-      "header-max-length": [
-        2,
-        "always",
-        50
-      ]
+  "exports": {
+    ".": {
+      "import": "./_esm/index.js",
+      "types": "./_types/index.d.ts"
     }
   },
-  "eslintConfig": {
-    "extends": [
-      "bloq",
-      "prettier"
-    ],
-    "overrides": [
-      {
-        "extends": [
-          "plugin:markdownlint/recommended"
-        ],
-        "files": [
-          "*.md"
-        ],
-        "parser": "eslint-plugin-markdownlint/parser",
-        "rules": {
-          "markdownlint/md013": "off",
-          "markdownlint/md034": "warn"
-        }
-      },
-      {
-        "extends": [
-          "bloq/mocha",
-          "prettier"
-        ],
-        "files": [
-          "*.test.js"
-        ],
-        "rules": {
-          "node/no-unpublished-require": "off"
-        }
-      }
-    ],
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "root": true
-  },
-  "knip": {
-    "ignoreDependencies": [
-      "@types/mocha",
-      "eslint-config-prettier",
-      "lint-staged"
-    ]
-  },
-  "lint-staged": {
-    "!(*.{js,md}|package.json)": [
-      "prettier --ignore-unknown --write"
-    ],
-    "*.{js,md}": [
-      "eslint --cache --fix --quiet",
-      "prettier --ignore-unknown --write"
-    ],
-    "package.json": [
-      "better-sort-package-json",
-      "prettier --ignore-unknown --write"
-    ]
-  },
-  "prettier": {}
+  "module": "./_esm/index.js",
+  "types": "./_types/index.d.ts",
+  "typings": "./_types/index.d.ts"
 }
