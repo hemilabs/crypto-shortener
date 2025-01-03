@@ -1,6 +1,6 @@
 {
   "name": "crypto-shortener",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Shorten crypto hashes, addresses with ellipsis",
   "keywords": [
     "address",
@@ -44,7 +44,7 @@
     "commitlint-config-bloq": "^1.1.0",
     "eslint": "^8.57.1",
     "eslint-config-bloq": "^4.4.1",
-    "husky": "^9.1.6",
+    "husky": "^9.1.7",
     "knip": "^5.36.3",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",

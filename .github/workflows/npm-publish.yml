@@ -7,5 +7,16 @@ on:
 
 jobs:
   npm-publish:
-    uses: hemilabs/actions/.github/workflows/npm-publish.yml@main
-    secrets: inherit
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: ${{ inputs.fetch-depth }}
+      - uses: hemilabs/actions/setup-node-env@main
+      - run: npm run --if-present prepublishOnly
+      - uses: JS-DevTools/npm-publish@9ff4ebfbe48473265867fb9608c047e7995edfa3 # v3.1.1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
