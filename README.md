@@ -1,5 +1,7 @@
 # crypto-shortener
 
+[![NPM version](https://img.shields.io/npm/v/crypto-shortener)](https://www.npmjs.com/package/crypto-shortener) [![Package size](https://img.shields.io/bundlephobia/minzip/crypto-shortener)](https://bundlephobia.com/package/crypto-shortener) [![Follow Hemi on X](https://img.shields.io/twitter/url?url=https%3A%2F%2Fx.com%2Fhemi_xyz&style=flat&logo=x&label=%40hemi_xyz&labelColor=%23ff6c15&color=%230a0a0a)](https://x.com/intent/follow?screen_name=hemi_xyz)
+
 Shorten crypto hashes, addresses with ellipsis.
 
 ## Installation
