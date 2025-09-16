@@ -12,4 +12,4 @@ jobs:
   js-checks:
     uses: hemilabs/actions/.github/workflows/js-checks.yml@v1
     with:
-      node-versions: '["18", "20", "22", "24"]'
+      node-versions: '["20", "22", "24"]'
